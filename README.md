@@ -15,7 +15,7 @@ Some features of this tool:
 
 ## Usage
 This tool requires too much memory to be hosted online using free services.
-The only way to try out this app would be to run it locally.
+The only way to try out this app would be to run it locally. A desktop app is in development.
 
 ![OOMkilled](demo/OOMkilled.png)
 
