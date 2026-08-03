@@ -1,4 +1,4 @@
-import AudioMotionAnalyzer from 'https://cdn.skypack.dev/audiomotion-analyzer?min';
+import AudioMotionAnalyzer from 'https://cdn.jsdelivr.net/npm/audiomotion-analyzer@4.5.4/+esm';
 
 let audioEl, audioMotion;
 
