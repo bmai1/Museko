@@ -3,4 +3,5 @@ flask
 librosa
 matplotlib
 numpy
+python3-discogs-client
 yt-dlp
