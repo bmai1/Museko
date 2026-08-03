@@ -30,6 +30,4 @@ root = tk.Tk()
 app = Museko(root)
 root.mainloop()
 
-# if you don't want to run the flask web app,
-# this bare-bones tkinter window can be run directly with `python3 museko.py`
-# (assuming pillow and tkinter is already installed on your machine)
+# Tkinter window for testing on macOS without running Flask
