@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     const uploadContainer = document.getElementById('upload-container'),
-          fileNameElement = document.getElementById('fileName'),
           fileInput       = document.getElementById('file-input'),
           uploadButton     = document.getElementById('upload-button');
 
@@ -30,9 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const files = e.target.files || e.dataTransfer.files;
         if (files.length > 0) {
             const fileName = files[0].name;
-            fileNameElement.textContent = fileName;
-        } else {
-            fileNameElement.textContent = 'No file chosen';
         }
     }
 
