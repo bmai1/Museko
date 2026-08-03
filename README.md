@@ -1,13 +1,13 @@
-## Museko: genre classification and Discogs release discovery tool for macOS
+## Museko: genre classification and Discogs release discovery tool
 
-Note: Essentia does not have Python bindings for Windows.
+Note: Essentia does not have Python bindings for Windows. You can still use this tool with WSL, and a Dockerfile is provided.
 
 Some features of this tool:
 
-- Audio visualization with [audioMotion-analyzer](https://audiomotion.dev/#/)
 - Genre classification with audio models from Essentia referencing the Discogs style taxonomy ([genre_discogs400](https://essentia.upf.edu/models.html))
-- Download .mp3 files from supported sites with yt-dlp interface
-- Discogs release roulette (with limited genre filtering)
+- Audio visualization with [audioMotion-analyzer](https://audiomotion.dev/#/)
+- Download .mp3 audio files from supported sites with yt-dlp
+- Discogs release roulette with limited genre filtering support
 
 
 ![Flask view](demo/demo-2-19-26.png)
@@ -19,23 +19,105 @@ The only way to try out this app would be to run it locally. A desktop app is in
 
 ![OOMkilled](demo/OOMkilled.png)
 
-## Instructions
+## Instructions (macOS/Linux)
 
-1. Download `museko.zip` in [Releases](https://github.com/bmai1/museko/releases) and unzip.
-3. Install Python dependencies. `essentia-tensorflow` may require `tensorflow` to be installed. It is recommended to use a virtual environment:
+1. Download the latest `museko.zip` in [Releases](https://github.com/bmai1/museko/releases) and unzip.
+3. Install Python dependencies. It is recommended to use a virtual environment:
 ```bash
 cd path/to/museko
-python3 -m venv env
+python -m venv venv
 . env/bin/activate
 ```
 ```bash
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 3. Run Flask development server, which defaults to http://127.0.0.1:5000 and can be viewed in a web browser.
 ```
 flask run
 ```
 
-4. Upload mp3 files that you wish to analyze. After a few seconds, it will display the genre prediction graph and audio visualizer.
+4. Upload mp3 files that you want to analyze. After a few seconds, it will display the genre prediction graph and audio visualizer.
 
-5. ```Ctrl-C``` in the command line to close the server when you are done.
+5. ```Ctrl-C``` in the terminal to close the server when you are done.
+
+## Museko: genre classification and Discogs release discovery tool
+
+Note: Essentia does not have Python bindings for Windows. You can still use this tool with WSL, and a Dockerfile is provided.
+
+Some features of this tool:
+
+- Genre classification with audio models from Essentia referencing the Discogs style taxonomy ([genre_discogs400](https://essentia.upf.edu/models.html))
+- Audio visualization with [audioMotion-analyzer](https://audiomotion.dev/#/)
+- Download .mp3 audio files from supported sites with yt-dlp
+- Discogs release roulette with limited genre filtering support
+
+
+![Flask view](demo/demo-2-19-26.png)
+
+
+## Usage
+This tool requires too much memory to be hosted online using free services.
+The only way to try out this app would be to run it locally. A desktop app is currently in development.
+
+![OOMkilled](demo/OOMkilled.png)
+
+## Instructions (macOS/Linux)
+
+1. Download the latest `museko.zip` from the [Releases](https://github.com/bmai1/museko/releases) page and extract it.
+
+2. Create and activate a virtual environment:
+
+```bash
+cd path/to/museko
+python -m venv venv
+source venv/bin/activate
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Start the Flask development server:
+
+```bash
+flask --app apps/web/app.py run
+```
+
+The application will be available at http://127.0.0.1:5000.
+
+5. Upload MP3 files to analyze. After a few seconds, the genre prediction graph and audio visualizer will appear.
+
+6. Press `Ctrl+C` in the terminal to stop the server.
+
+## Docker
+
+Docker allows Museko to run on Windows, macOS, and Linux without installing Python or Essentia locally.
+
+1. Download the latest `museko.zip` from the [Releases](https://github.com/bmai1/museko/releases) page and extract it.
+
+2. From the project root, start the application:
+
+```bash
+docker compose up --build
+```
+
+The app will be available at http://localhost:5000.
+
+3. When you're finished, stop and remove the container:
+
+```bash
+docker compose down
+```
+
+Alternatively, you can build and run without compose.
+```bash
+docker build -t museko .
+```
+
+```bash
+docker run -it --rm -p 5000:5000 museko
+```
+
+Press `Ctrl+C` to stop the Flask server. The container will be removed after exiting with the --rm flag.
