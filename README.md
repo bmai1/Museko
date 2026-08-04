@@ -1,17 +1,21 @@
-## Museko: genre classification and Discogs release discovery tool
+## Museko
+![build](https://github.com/bmai1/museko/actions/workflows/ci.yml/badge.svg)
 
-Note: Essentia does not have Python bindings for Windows. You can still use this tool with WSL, and a Dockerfile is provided.
+A genre classification and Discogs release discovery tool for macOS and Linux.
+
+Relies on [Essentia](https://github.com/MTG/essentia), which does not have Python bindings for Windows. You can still use this tool with WSL, and a Dockerfile is provided.
 
 Some features of this tool:
 
-- Genre classification with audio models from Essentia referencing the Discogs style taxonomy ([genre_discogs400](https://essentia.upf.edu/models.html))
+- Genre classification referencing the Discogs style taxonomy ([genre_discogs400](https://essentia.upf.edu/models.html))
 - Audio visualization with [audioMotion-analyzer](https://audiomotion.dev/#/)
 - Download .mp3 audio files from supported sites with yt-dlp
 - Discogs release roulette with limited genre filtering support
 
 
-![Flask view](demo/demo-2-19-26.png)
+![Genre predictions](demo/demo-2-19-26.png)
 
+![Discogs release](demo/demo-8-3-26.png)
 
 ## Usage
 This tool requires too much memory to be hosted online using free services.
