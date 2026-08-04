@@ -8,14 +8,12 @@
 # Run:
 #   docker run -it --rm -p 5000:5000 museko
 #
-# With live code editing (mount your working dir so you don't rebuild on every change):
-#   docker run -it --rm -p 5000:5000 -v ${PWD}:/apps/web museko
 #
-# Requires Docker Desktop for Windows with the WSL2 backend enabled
+# Docker Desktop for Windows with the WSL2 backend enabled
 # (Docker Desktop > Settings > General > "Use the WSL 2 based engine").
- 
 
-FROM python:3.10-slim-bookworm
+
+FROM python:3.14-slim
  
 # ffmpeg is needed by yt-dlp's audio postprocessor.
 # libsndfile1 backs librosa/soundfile's audio decoding.
